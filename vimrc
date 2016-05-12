@@ -41,7 +41,8 @@ set laststatus=2                  " Show the status line all the time
 " Useful status information at bottom of screen
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 
-colorscheme vividchalk            "github
+set background=dark
+colorscheme material-theme 
 
 map <leader>s :call ToggleScratch()<cr>
 map <leader>r :w \| :! rake spec<cr>
