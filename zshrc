@@ -16,5 +16,5 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 plugins=(git mattberther docker)
 source $ZSH/oh-my-zsh.sh
 
-alias dokku='$HOME/src/github/dokku/contrib/dokku_client.sh'
+alias dokku='$HOME/src/dokku/contrib/dokku_client.sh'
 
