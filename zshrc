@@ -12,6 +12,11 @@ export SSH_PUBLIC_KEY_PATH=$HOME/.ssh/id_rsa.pub
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+export PIP_REQUIRE_VIRTUALENV=true
+
 # Plugins need to load after rbenv initialization
 plugins=(git mattberther docker)
 source $ZSH/oh-my-zsh.sh
