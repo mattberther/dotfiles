@@ -8,7 +8,6 @@ sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delet
 export PATH="bin:node_modules/.bin:/usr/local/share/npm/bin:$PATH"
 
 export EDITOR='vim'
-
 export SSH_PUBLIC_KEY_PATH=$HOME/.ssh/id_rsa.pub
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
@@ -19,4 +18,3 @@ source $ZSH/oh-my-zsh.sh
 
 alias dokku='$HOME/src/github/dokku/contrib/dokku_client.sh'
 
-eval "$(docker-machine env dev)"
