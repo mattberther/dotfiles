@@ -23,3 +23,4 @@ source $ZSH/oh-my-zsh.sh
 
 alias dokku='$HOME/src/dokku/contrib/dokku_client.sh'
 
+source dnvm.sh
