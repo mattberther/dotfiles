@@ -11,6 +11,7 @@ export EDITOR='vim'
 export SSH_PUBLIC_KEY_PATH=$HOME/.ssh/id_rsa.pub
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+if which nodenv > /dev/null; then eval "$(nodenv init -)"; fi
 
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
@@ -24,3 +25,8 @@ source $ZSH/oh-my-zsh.sh
 alias dokku='$HOME/src/dokku/contrib/dokku_client.sh'
 
 source dnvm.sh
+
+
+# tabtab source for yo package
+# uninstall by removing these lines or running `tabtab uninstall yo`
+[[ -f /usr/local/lib/node_modules/yo/node_modules/tabtab/.completions/yo.zsh ]] && . /usr/local/lib/node_modules/yo/node_modules/tabtab/.completions/yo.zsh
