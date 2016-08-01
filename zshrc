@@ -19,7 +19,7 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 export PIP_REQUIRE_VIRTUALENV=true
 
 # Plugins need to load after rbenv initialization
-plugins=(git mattberther docker)
+plugins=(git mattberther docker docker-compose)
 source $ZSH/oh-my-zsh.sh
 
 alias dokku='$HOME/src/dokku/contrib/dokku_client.sh'

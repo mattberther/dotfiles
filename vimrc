@@ -1,5 +1,6 @@
+execute pathogen#infect()
 set nocompatible                  " Must come first because it changes other options.
-let mapleader = ','                  " Update leader character to be ,
+let mapleader = ','               " Update leader character to be ,
 
 syntax enable                     " Turn on syntax highlighting.
 filetype plugin indent on         " Turn on file type detection.
@@ -42,10 +43,11 @@ set laststatus=2                  " Show the status line all the time
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 
 set background=dark
-colorscheme material-theme 
+colorscheme vividchalk 
 
 map <leader>s :call ToggleScratch()<cr>
 map <leader>r :w \| :! rake spec<cr>
+map <leader>o :NERDTree<cr>
 
 map <F4> :set hlsearch! hlsearch?<cr>
 
