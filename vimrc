@@ -1,78 +1,98 @@
-execute pathogen#infect()
-set nocompatible                  " Must come first because it changes other options.
-let mapleader = ','               " Update leader character to be ,
+set encoding=utf-8
+set nocompatible            " required
+let mapleader=";"
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-syntax enable                     " Turn on syntax highlighting.
-filetype plugin indent on         " Turn on file type detection.
-
-set showcmd                       " Display incomplete commands.
-set showmode                      " Display the mode you're in.
-
-set backspace=indent,eol,start    " Intuitive backspacing.
-
-set hidden                        " Handle multiple buffers better.
-
-set wildmenu                      " Enhanced command line completion.
-set wildmode=list:longest         " Complete files like a shell.
-
-set ignorecase                    " Case-insensitive searching.
-set smartcase                     " But case-sensitive if expression contains a capital letter.
-
-set number                        " Show line numbers.
-set ruler                         " Show cursor position.
-
-set incsearch                     " Highlight matches as you type.
-set hlsearch                      " Highlight matches.
-
-set nowrap                        " Turn on line wrapping.
-set scrolloff=3                   " Show 3 lines of context around the cursor.
-
-"set title                         " Set the terminal's title
-
-set visualbell                    " No beeping.
-
-set nobackup                      " Don't make a backup before overwriting a file.
-set nowritebackup                 " And again.
-
-set tabstop=2                    " Global tab width.
-set shiftwidth=2                 " And again, related.
-set expandtab                    " Use spaces instead of tabs
-
-set laststatus=2                  " Show the status line all the time
-" Useful status information at bottom of screen
-set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+Plugin 'tpope/vim-sensible'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'duff/vim-scratch'
+Plugin 'Vimjas/vim-python-pep8-indent'
+"Plugin 'Valloric/YouCompleteMe'
+Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdtree'
+Plugin 'nvie/vim-flake8'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'Chiel92/vim-autoformat'
+Plugin 'tpope/vim-surround'
+Plugin 'mattn/emmet-vim'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-markdown'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'tpope/vim-vividchalk'
+Plugin 'michaeljsmith/vim-indent-object'
+Plugin 'freitass/todo.txt-vim'
+Plugin 'morhetz/gruvbox'
+" all of your plugins must be added before the following line
+call vundle#end()
 
 set background=dark
-colorscheme vividchalk 
+colorscheme gruvbox
 
-map <leader>s :call ToggleScratch()<cr>
-map <leader>r :w \| :! rake spec<cr>
-map <leader>o :NERDTree<cr>
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set softtabstop=4
+set laststatus=2
+"------------Start Python PEP 8 stuff----------------
+" Use the below highlight group when displaying bad whitespace is desired.
+highlight BadWhitespace ctermbg=red guibg=red
 
-map <F4> :set hlsearch! hlsearch?<cr>
+" Display tabs at the beginning of a line in Python mode as bad.
+au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /^\t\+/
+" Make trailing whitespace be flagged as bad.
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
-"F7 WordProcessorOn
+" Wrap text after a certain number of characters
+au BufRead,BufNewFile *.py,*.pyw, set textwidth=100
+
+" Use UNIX (\n) line endings.
+au BufNewFile *.py,*.pyw,*.c,*.h set fileformat=unix
+
+au BufWrite *.py,*.pyw :Autoformat
+
+" For full syntax highlighting:
+let python_highlight_all=1
+syntax on
+
+" Keep indentation level from previous line:
+autocmd FileType python set autoindent
+
+"----------Stop python PEP 8 stuff--------------
+
+au BufWrite *.js :Autoformat
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+map <leader>f :Autoformat<CR>
+
+let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
+map <C-n> :NERDTreeToggle<CR>
+
+set number
+"set clipboard=unnamedplus
+set noswapfile
+set relativenumber
+
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
+let g:ctrlp_working_path_mode = 'wa'
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
+nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
+" nnoremap <up> <nop>
+" nnoremap <down> <nop>
+" nnoremap <left> <nop>
+" nnoremap <right> <nop>
+
 map <F7> :set linebreak<cr>:set display+=lastline<cr>:set wrap<cr>:setlocal spell spelllang=en_us<cr>
-"F8 WordProcessorOff
 map <F8> :set nowrap<cr>:set nospell<cr>
 
-function! ToggleScratch()
-  if (expand('%') == g:ScratchBufferName)
-    quit
-  else
-    Sscratch
-  endif
-endfunction
-
-" Controversial...swap colon and semicolon for easier commands
-"nnoremap ; :
-"nnoremap : ;
-
-"vnoremap ; :
-"vnoremap : ;
-
-" Automatic fold settings for specific files. Uncomment to use.
-" autocmd FileType ruby setlocal foldmethod=syntax
-" autocmd FileType css  setlocal foldmethod=indent shiftwidth=2 tabstop=2
-autocmd Filetype gitcommit setlocal spell textwidth=72
-autocmd BufRead,BufNewFile *.md setf markdown
+"let g:autoformat_verbosemode=1
