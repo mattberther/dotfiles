@@ -1,0 +1,8 @@
+# use 20 connections by default (instead of the standard 5)
+set pget:default-n 20
+
+# use segmented downloading for directories
+set mirror:parallel-transfer-count 3
+set mirror:use-pget-n 8
+set mirror:parallel-directories true
+
