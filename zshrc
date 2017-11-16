@@ -3,9 +3,7 @@ ZSH_THEME="agnoster"
 DISABLE_UPDATE_PROMPT="true"
 DISABLE_AUTO_TITLE="true"
 
-sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'
-
-export PATH="bin:node_modules/.bin:/usr/local/share/npm/bin:$PATH"
+export PATH="$HOME/.pyenv/bin:$HOME/.rbenv/bin:$HOME/.nodenv/bin:bin:node_modules/.bin:/usr/local/share/npm/bin:$HOME/.local/bin:$PATH"
 
 export EDITOR='vim'
 export SSH_PUBLIC_KEY_PATH=$HOME/.ssh/id_rsa.pub
@@ -22,11 +20,5 @@ export PIP_REQUIRE_VIRTUALENV=true
 plugins=(git docker docker-compose zsh-autosuggestions zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
-alias dokku='$HOME/src/dokku/contrib/dokku_client.sh'
+alias clear_history='echo "" >  ~/.zsh_history & exec $SHELL -l'
 
-source dnvm.sh
-
-
-# tabtab source for yo package
-# uninstall by removing these lines or running `tabtab uninstall yo`
-[[ -f /usr/local/lib/node_modules/yo/node_modules/tabtab/.completions/yo.zsh ]] && . /usr/local/lib/node_modules/yo/node_modules/tabtab/.completions/yo.zsh
