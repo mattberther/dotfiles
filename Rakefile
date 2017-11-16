@@ -8,8 +8,6 @@ task :install do
   replace_all = false
 
   files = Dir['*'] - %w[Rakefile oh-my-zsh]
-  files << "oh-my-zsh/custom/plugins/mattberther"
-  files << "oh-my-zsh/custom/mattberther.zsh-theme"
 
   files.each do |file|
     system %Q{mkdir -p "$HOME/.#{File.dirname(file)}"} if file =~ /\//

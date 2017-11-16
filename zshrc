@@ -1,5 +1,5 @@
 ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="mattberther"
+ZSH_THEME="agnoster"
 DISABLE_UPDATE_PROMPT="true"
 DISABLE_AUTO_TITLE="true"
 
@@ -19,7 +19,7 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 export PIP_REQUIRE_VIRTUALENV=true
 
 # Plugins need to load after rbenv initialization
-plugins=(git mattberther docker docker-compose)
+plugins=(git docker docker-compose zsh-autosuggestions zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 alias dokku='$HOME/src/dokku/contrib/dokku_client.sh'
