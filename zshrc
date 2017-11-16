@@ -1,7 +1,7 @@
-ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="agnoster"
-DISABLE_UPDATE_PROMPT="true"
-DISABLE_AUTO_TITLE="true"
+export ZSH=$HOME/.oh-my-zsh
+export ZSH_THEME="agnoster"
+export DISABLE_UPDATE_PROMPT="true"
+export DISABLE_AUTO_TITLE="true"
 
 export PATH="$HOME/.pyenv/bin:$HOME/.rbenv/bin:$HOME/.nodenv/bin:bin:node_modules/.bin:/usr/local/share/npm/bin:$HOME/.local/bin:$PATH"
 
