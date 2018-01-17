@@ -28,7 +28,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'tpope/vim-vividchalk'
 Plugin 'michaeljsmith/vim-indent-object'
-Plugin 'freitass/todo.txt-vim'
+Plugin 'davidoc/taskpaper.vim'
 Plugin 'morhetz/gruvbox'
 " all of your plugins must be added before the following line
 call vundle#end()
@@ -83,8 +83,18 @@ set noswapfile
 set relativenumber
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
-let g:ctrlp_working_path_mode = 'wa'
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
+if executable('ag')
+    " Use ag over grep
+    set grepprg=ag\ --nogroup\ --nocolor
+
+    " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+    " ag is fast enough that CtrlP doesn't need to cache
+    let g:ctrlp_use_caching = 0
+    let g:ctrlp_working_path_mode = 'c'
+endif
 
 nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
 " nnoremap <up> <nop>
