@@ -7,5 +7,5 @@ set antialias                     " MacVim: smooth fonts.
 
 set encoding=utf-8                " Use UTF-8 everywhere.
 if has("gui_running")
-   set guifont=Fira\ Mono:h14
+   set guifont=Fira\ Mono:h16
 endif
