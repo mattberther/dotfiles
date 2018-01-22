@@ -69,6 +69,7 @@ autocmd FileType python set autoindent
 
 au BufWrite *.js :Autoformat
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType taskpaper setlocal ts=4 sts=4 sw=4 noexpandtab
 
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
@@ -93,7 +94,6 @@ if executable('ag')
 
     " ag is fast enough that CtrlP doesn't need to cache
     let g:ctrlp_use_caching = 0
-    let g:ctrlp_working_path_mode = 'c'
 endif
 
 nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
@@ -106,3 +106,19 @@ map <F7> :set linebreak<cr>:set display+=lastline<cr>:set wrap<cr>:setlocal spel
 map <F8> :set nowrap<cr>:set nospell<cr>
 
 "let g:autoformat_verbosemode=1
+
+let g:task_paper_follow_move=0
+
+let g:ctrlp_buffer_func = { 'enter': 'MyCtrlPMappings' }
+
+func! MyCtrlPMappings()
+    nnoremap <buffer> <silent> <c-@> :call <sid>DeleteBuffer()<cr>
+endfunc
+
+func! s:DeleteBuffer()
+    let line = getline('.')
+    let bufid = line =~ '\[\d\+\*No Name\]$' ? str2nr(matchstr(line, '\d\+'))
+        \ : fnamemodify(line[2:], ':p')
+    exec "bd" bufid
+    exec "norm \<F5>"
+endfunc
