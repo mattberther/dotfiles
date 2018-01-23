@@ -15,6 +15,7 @@ if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 export PIP_REQUIRE_VIRTUALENV=true
+export PYTHONDONTWRITEBYTECODE=1
 
 # Plugins need to load after rbenv initialization
 plugins=(git docker docker-compose zsh-autosuggestions zsh-syntax-highlighting)
