@@ -24,17 +24,25 @@ Plugin 'tpope/vim-surround'
 Plugin 'mattn/emmet-vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-markdown'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'nanotech/jellybeans.vim'
-Plugin 'tpope/vim-vividchalk'
 Plugin 'michaeljsmith/vim-indent-object'
 Plugin 'davidoc/taskpaper.vim'
+
+" colorschemes
+Plugin 'drewtempelmeyer/palenight.vim'
+Plugin 'tpope/vim-vividchalk'
 Plugin 'morhetz/gruvbox'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'ayu-theme/ayu-vim'
+Plugin 'joshdick/onedark.vim'
+Plugin 'arcticicestudio/nord-vim'
+
+
 " all of your plugins must be added before the following line
 call vundle#end()
 
 set background=dark
-colorscheme gruvbox
+colorscheme onedark
 
 set tabstop=4
 set shiftwidth=4
