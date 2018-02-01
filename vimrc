@@ -26,6 +26,8 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-markdown'
 Plugin 'michaeljsmith/vim-indent-object'
 Plugin 'davidoc/taskpaper.vim'
+Plugin 'reedes/vim-pencil'
+Plugin 'junegunn/goyo.vim'
 
 " colorschemes
 Plugin 'drewtempelmeyer/palenight.vim'
@@ -41,6 +43,8 @@ Plugin 'arcticicestudio/nord-vim'
 " all of your plugins must be added before the following line
 call vundle#end()
 
+set termguicolors
+let g:airline_theme='onedark'
 set background=dark
 colorscheme onedark
 
@@ -100,6 +104,7 @@ if executable('ag')
     " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
     let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
+    let g:ctrlp_show_hidden = 1
     " ag is fast enough that CtrlP doesn't need to cache
     let g:ctrlp_use_caching = 0
 endif
@@ -130,3 +135,12 @@ func! s:DeleteBuffer()
     exec "bd" bufid
     exec "norm \<F5>"
 endfunc
+
+
+augroup pencil
+  autocmd!
+  autocmd FileType markdown,mkd call pencil#init()
+  autocmd FileType text         call pencil#init()
+augroup END
+
+
