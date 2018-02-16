@@ -39,14 +39,12 @@ Plugin 'ayu-theme/ayu-vim'
 Plugin 'joshdick/onedark.vim'
 Plugin 'arcticicestudio/nord-vim'
 
-
 " all of your plugins must be added before the following line
 call vundle#end()
 
-set termguicolors
-let g:airline_theme='onedark'
+syntax enable
 set background=dark
-colorscheme onedark
+colorscheme solarized
 
 set tabstop=4
 set shiftwidth=4
@@ -72,7 +70,6 @@ au BufWrite *.py,*.pyw :Autoformat
 
 " For full syntax highlighting:
 let python_highlight_all=1
-syntax on
 
 " Keep indentation level from previous line:
 autocmd FileType python set autoindent
