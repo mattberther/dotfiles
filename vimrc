@@ -84,6 +84,9 @@ let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 map <leader>f :Autoformat<CR>
 
+autocmd FileType markdown,mkd let g:markdown_folding=1
+
+
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 map <C-n> :NERDTreeToggle<CR>
 
@@ -111,6 +114,7 @@ nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
 " nnoremap <down> <nop>
 " nnoremap <left> <nop>
 " nnoremap <right> <nop>
+
 
 map <F7> :set linebreak<cr>:set display+=lastline<cr>:set wrap<cr>:setlocal spell spelllang=en_us<cr>
 map <F8> :set nowrap<cr>:set nospell<cr>
