@@ -1,5 +1,5 @@
 export ZSH=$HOME/.oh-my-zsh
-export ZSH_THEME="blinks"
+export ZSH_THEME="athens"
 export DISABLE_UPDATE_PROMPT="true"
 export DISABLE_AUTO_TITLE="true"
 
