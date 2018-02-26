@@ -3,7 +3,7 @@ export ZSH_THEME="athens"
 export DISABLE_UPDATE_PROMPT="true"
 export DISABLE_AUTO_TITLE="true"
 
-export PATH="$HOME/.pyenv/bin:$HOME/.rbenv/bin:$HOME/.nodenv/bin:bin:node_modules/.bin:/usr/local/share/npm/bin:$HOME/.local/bin:$PATH"
+export PATH="$HOME/.pyenv/bin:$HOME/.rbenv/bin:$HOME/.nodenv/bin:bin:node_modules/.bin:/usr/local/share/npm/bin:$HOME/.local/bin:/usr/local/sbin:$PATH"
 
 export EDITOR='vim'
 export SSH_PUBLIC_KEY_PATH=$HOME/.ssh/id_rsa.pub
