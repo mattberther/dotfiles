@@ -44,13 +44,18 @@ Plugin 'arcticicestudio/nord-vim'
 " all of your plugins must be added before the following line
 call vundle#end()
 
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-
 set background=dark
-set termguicolors
+if exists('+termguicolors')
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    set t_ut=
+    set termguicolors
+endif
 syntax enable
-colorscheme solarized8_flat
+colorscheme solarized
+if v:version >= 800
+    colorscheme solarized8_flat
+endif
 
 set tabstop=4
 set shiftwidth=4
