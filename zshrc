@@ -1,7 +1,5 @@
 export ZSH=$HOME/.oh-my-zsh
-export ZSH_THEME="athens"
-export DISABLE_UPDATE_PROMPT="true"
-export DISABLE_AUTO_TITLE="true"
+fpath=( "$HOME/.zfunctions" $fpath )
 
 export PATH="$HOME/.pyenv/bin:$HOME/.rbenv/bin:$HOME/.nodenv/bin:bin:node_modules/.bin:/usr/local/share/npm/bin:$HOME/.local/bin:/usr/local/sbin:$PATH"
 
@@ -22,4 +20,11 @@ plugins=(git docker docker-compose zsh-autosuggestions zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 alias clear_history='echo "" >  ~/.zsh_history & exec $SHELL -l'
+
+autoload -U promptinit; promptinit
+
+# optionally define some options
+PURE_CMD_MAX_EXEC_TIME=10
+
+prompt pure
 

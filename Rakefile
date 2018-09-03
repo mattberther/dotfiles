@@ -6,7 +6,7 @@ task :install do
   switch_to_zsh
   replace_all = false
 
-  files = Dir['**/*'].select{ |f| File.file?(f) } - %w[Rakefile]
+  files = Dir.glob('**/*').reject { |f| f['pure'] || f['Rakefile'] || !File.file?(f) }
 
   files.each do |file|
     system %Q{mkdir -p "$HOME/.#{File.dirname(file)}"} if file =~ /\//
@@ -37,6 +37,9 @@ task :install do
       link_file(file, target_path)
     end
   end
+
+  link_file("pure/async.zsh", File.join(ENV['HOME'], ".zfunctions/async"))
+  link_file("pure/pure.zsh", File.join(ENV['HOME'], ".zfunctions/prompt_pure_setup"))
 end
 
 def link_file(file, target_path)
