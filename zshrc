@@ -20,6 +20,7 @@ plugins=(git docker docker-compose zsh-autosuggestions zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 alias clear_history='echo "" >  ~/.zsh_history & exec $SHELL -l'
+export GPG_TTY="tty"
 
 autoload -U promptinit; promptinit
 
