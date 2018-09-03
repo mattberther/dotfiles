@@ -34,17 +34,23 @@ Plugin 'drewtempelmeyer/palenight.vim'
 Plugin 'tpope/vim-vividchalk'
 Plugin 'morhetz/gruvbox'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'lifepillar/vim-solarized8'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'ayu-theme/ayu-vim'
 Plugin 'joshdick/onedark.vim'
 Plugin 'arcticicestudio/nord-vim'
 
+
 " all of your plugins must be added before the following line
 call vundle#end()
 
-syntax enable
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
 set background=dark
-colorscheme solarized
+set termguicolors
+syntax enable
+colorscheme solarized8_flat
 
 set tabstop=4
 set shiftwidth=4
