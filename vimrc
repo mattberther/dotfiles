@@ -39,6 +39,7 @@ Plugin 'nanotech/jellybeans.vim'
 Plugin 'ayu-theme/ayu-vim'
 Plugin 'joshdick/onedark.vim'
 Plugin 'arcticicestudio/nord-vim'
+Plugin 'connorholyday/vim-snazzy'
 
 
 " all of your plugins must be added before the following line
@@ -52,10 +53,7 @@ if exists('+termguicolors')
     set termguicolors
 endif
 syntax enable
-colorscheme solarized
-if v:version >= 800
-    colorscheme solarized8_flat
-endif
+colorscheme snazzy
 
 set tabstop=4
 set shiftwidth=4

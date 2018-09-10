@@ -2,7 +2,7 @@ require 'rake'
 
 desc "install the dot files into user's home directory"
 task :install do
-  install_oh_my_zsh
+  install_antigen
   switch_to_zsh
   replace_all = false
 
@@ -49,21 +49,21 @@ def link_file(file, target_path)
   system %Q{ln -s "$PWD/#{file}" "#{target_path}"}
 end
 
-def install_oh_my_zsh
-  if File.exist?(File.join(ENV['HOME'], ".oh-my-zsh"))
-    puts "found ~/.oh-my-zsh"
-  else
-    print "install oh-my-zsh? [ynq] "
-    case $stdin.gets.chomp
-    when 'y'
-      puts "installing oh-my-zsh"
-      system %Q{git clone https://github.com/robbyrussell/oh-my-zsh.git "$HOME/.oh-my-zsh"}
-    when 'q'
-      exit
+def install_antigen
+    if File.exist?(File.join(ENV['HOME'], ".zsh-antigen"))
+        puts "found ~/.zsh-antigen"
     else
-      puts "skipping oh-my-zsh, you will need to change ~/.zshrc"
+        print "install antigen? [ynq] "
+        case $stdin.gets.chomp
+        when 'y'
+            puts "installing antigen"
+            system %Q{git clone https://github.com/zsh-users/antigen.git "$HOME/.zsh-antigen"}
+        when 'q'
+            exit
+        else
+            puts "skipping antigen, you will need to change ~/.zshrc"
+        end
     end
-  end
 end
 
 def switch_to_zsh
