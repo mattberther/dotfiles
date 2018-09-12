@@ -37,9 +37,6 @@ task :install do
       link_file(file, target_path)
     end
   end
-
-  link_file("pure/async.zsh", File.join(ENV['HOME'], ".zfunctions/async"))
-  link_file("pure/pure.zsh", File.join(ENV['HOME'], ".zfunctions/prompt_pure_setup"))
 end
 
 def link_file(file, target_path)
