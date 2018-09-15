@@ -16,3 +16,4 @@ export PYTHONDONTWRITEBYTECODE=1
 alias clear_history='echo "" >  ~/.zsh_history & exec $SHELL -l'
 export GPG_TTY="tty"
 
+unalias grv

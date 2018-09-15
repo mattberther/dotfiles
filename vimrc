@@ -45,6 +45,8 @@ Plugin 'connorholyday/vim-snazzy'
 " all of your plugins must be added before the following line
 call vundle#end()
 
+let g:nord_cursor_line_number_background = 1
+
 set background=dark
 if exists('+termguicolors')
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
@@ -53,7 +55,7 @@ if exists('+termguicolors')
     set termguicolors
 endif
 syntax enable
-colorscheme snazzy
+colorscheme nord
 
 set tabstop=4
 set shiftwidth=4
