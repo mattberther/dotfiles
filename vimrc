@@ -9,7 +9,6 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-unimpaired'
-Plugin 'duff/vim-scratch'
 Plugin 'Vimjas/vim-python-pep8-indent'
 "Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
@@ -17,8 +16,6 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'nvie/vim-flake8'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'tpope/vim-surround'
 Plugin 'mattn/emmet-vim'
@@ -26,18 +23,8 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-markdown'
 Plugin 'michaeljsmith/vim-indent-object'
 Plugin 'davidoc/taskpaper.vim'
-Plugin 'reedes/vim-pencil'
-Plugin 'junegunn/goyo.vim'
 
 " colorschemes
-Plugin 'drewtempelmeyer/palenight.vim'
-Plugin 'tpope/vim-vividchalk'
-Plugin 'morhetz/gruvbox'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'lifepillar/vim-solarized8'
-Plugin 'nanotech/jellybeans.vim'
-Plugin 'ayu-theme/ayu-vim'
-Plugin 'joshdick/onedark.vim'
 Plugin 'arcticicestudio/nord-vim'
 Plugin 'connorholyday/vim-snazzy'
 
@@ -102,7 +89,6 @@ let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 map <C-n> :NERDTreeToggle<CR>
 
 set number
-"set clipboard=unnamedplus
 set noswapfile
 set relativenumber
 
@@ -119,13 +105,6 @@ if executable('ag')
     " ag is fast enough that CtrlP doesn't need to cache
     let g:ctrlp_use_caching = 0
 endif
-
-nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
-" nnoremap <up> <nop>
-" nnoremap <down> <nop>
-" nnoremap <left> <nop>
-" nnoremap <right> <nop>
-
 
 map <F7> :set linebreak<cr>:set display+=lastline<cr>:set wrap<cr>:setlocal spell spelllang=en_us<cr>
 map <F8> :set nowrap<cr>:set nospell<cr>
@@ -148,11 +127,5 @@ func! s:DeleteBuffer()
     exec "norm \<F5>"
 endfunc
 
-
-augroup pencil
-  autocmd!
-  autocmd FileType markdown,mkd call pencil#init()
-  autocmd FileType text         call pencil#init()
-augroup END
 
 
