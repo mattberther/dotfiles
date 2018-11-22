@@ -61,6 +61,9 @@ def install_antibody
             puts "skipping antibody, you will need to change ~/.zshrc"
         end
     end
+
+    puts "running antibody bundle"
+    system %Q{antibody bundle < zsh_plugins.txt > zsh_plugins.sh}
 end
 
 def switch_to_zsh
