@@ -1,11 +1,11 @@
 robbyrussell/oh-my-zsh
-robbyrussell/oh-my-zsh folder:plugins/git
-robbyrussell/oh-my-zsh folder:plugins/docker
-robbyrussell/oh-my-zsh folder:plugins/docker-compose
-robbyrussell/oh-my-zsh folder:plugins/golang
-robbyrussell/oh-my-zsh folder:plugins/pyenv
-robbyrussell/oh-my-zsh folder:plugins/tmux
-robbyrussell/oh-my-zsh folder:plugins/tmuxinator
+robbyrussell/oh-my-zsh path:plugins/git
+robbyrussell/oh-my-zsh path:plugins/docker
+robbyrussell/oh-my-zsh path:plugins/docker-compose
+robbyrussell/oh-my-zsh path:plugins/golang
+robbyrussell/oh-my-zsh path:plugins/pyenv
+robbyrussell/oh-my-zsh path:plugins/tmux
+robbyrussell/oh-my-zsh path:plugins/tmuxinator
 
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-syntax-highlighting

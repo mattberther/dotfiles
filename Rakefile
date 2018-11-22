@@ -49,17 +49,18 @@ end
 def install_antibody
     if system %Q{which antibody}
         puts "found antibody"  
+        system %Q{antibody -v}
+    end
+
+    print "install/update antibody? [ynq] "
+    case $stdin.gets.chomp
+    when 'y'
+        puts "installing antibody"
+        system %Q{curl -sL git.io/antibody | sh -s}
+    when 'q'
+        exit
     else
-        print "install antibody? [ynq] "
-        case $stdin.gets.chomp
-        when 'y'
-            puts "installing antibody"
-            system %Q{curl -sL git.io/antibody | sh -s}
-        when 'q'
-            exit
-        else
-            puts "skipping antibody, you will need to change ~/.zshrc"
-        end
+        puts "skipping antibody, you will need to change ~/.zshrc"
     end
 
     puts "running antibody bundle"
