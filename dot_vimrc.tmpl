@@ -9,20 +9,33 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-unimpaired'
-Plugin 'Vimjas/vim-python-pep8-indent'
-"Plugin 'Valloric/YouCompleteMe'
-Plugin 'scrooloose/syntastic'
-Plugin 'scrooloose/nerdtree'
-Plugin 'nvie/vim-flake8'
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'Chiel92/vim-autoformat'
 Plugin 'tpope/vim-surround'
-Plugin 'mattn/emmet-vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-markdown'
+
+" writing
+Plugin 'kana/vim-textobj-user'
+Plugin 'reedes/vim-textobj-quote'
+Plugin 'reedes/vim-textobj-sentence'
+Plugin 'reedes/vim-litecorrect'
+Plugin 'reedes/vim-wordy'
+Plugin 'reedes/vim-pencil'
+Plugin 'reedes/vim-lexical'
+Plugin 'dbmrq/vim-ditto'
+
+" development
+Plugin 'fatih/vim-go'
+Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-fugitive'
+Plugin 'Chiel92/vim-autoformat'
+Plugin 'mattn/emmet-vim'
+
+" python
+Plugin 'Vimjas/vim-python-pep8-indent'
+Plugin 'nvie/vim-flake8'
 Plugin 'michaeljsmith/vim-indent-object'
-Plugin 'davidoc/taskpaper.vim'
 
 " colorschemes
 Plugin 'arcticicestudio/nord-vim'
@@ -39,7 +52,9 @@ if exists('+termguicolors')
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
     set t_ut=
+    {{- if ne .chezmoi.hostname "LT-MBERTHER2" }}
     set termguicolors
+    {{- end }}
 endif
 syntax enable
 colorscheme nord
@@ -83,6 +98,8 @@ map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 map <leader>f :Autoformat<CR>
 
 autocmd FileType markdown,mkd let g:markdown_folding=1
+set foldlevelstart=99
+set foldlevel=99
 
 
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
@@ -127,5 +144,46 @@ func! s:DeleteBuffer()
     exec "norm \<F5>"
 endfunc
 
+nnoremap <silent> <F3> :exec &nu==&rnu? "se nu!" : "se rnu!"<CR>
+
+set autowrite
+map <C-n> :cnext<CR>
+map <C-m> :cprevious<CR>
+nnoremap <leader>a :cclose<CR>
+
+autocmd FileType go nmap <leader>b <Plug>(go-build)
+autocmd FileType go nmap <leader>r <Plug>(go-run)
+autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
 
 
+function! Prose()
+    call pencil#init()
+    call lexical#init()
+    call litecorrect#init()
+    call textobj#quote#init({'educate': 0})
+    call textobj#sentence#init()
+
+    " manual reformatting shortcuts
+    nnoremap <buffer> <silent> Q gqap
+    xnoremap <buffer> <slient> Q gq
+    nnoremap <buffer> <silent> <leader>Q vapJgqap
+
+    " force top correction on most recent misspelling
+    nnoremap <buffer> <c-s> [s1z=<c-o>
+    inoremap <buffer> <c-s> <c-g>u<Esc>[s1z=`]A<c-g>u
+
+    " replace common punctuation
+    iabbrev <buffer> -- –
+    iabbrev <buffer> --- —
+    iabbrev <buffer> << «
+    iabbrev <buffer> >> »
+
+    map <silent> <buffer> <leader>qc <Plug>ReplaceWithCurly
+    map <silent> <buffer> <leader>qs <Plug>ReplaceWithStraight
+endfunction
+
+" automatically initialize buffer by file type
+autocmd FileType markdown,mkd,rst call Prose()
+
+" invoke manually by command for other file types
+command! -nargs=0 Prose call Prose()

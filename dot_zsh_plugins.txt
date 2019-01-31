@@ -3,7 +3,6 @@ robbyrussell/oh-my-zsh path:plugins/git
 robbyrussell/oh-my-zsh path:plugins/docker
 robbyrussell/oh-my-zsh path:plugins/docker-compose
 robbyrussell/oh-my-zsh path:plugins/golang
-robbyrussell/oh-my-zsh path:plugins/pyenv
 robbyrussell/oh-my-zsh path:plugins/tmux
 robbyrussell/oh-my-zsh path:plugins/tmuxinator
 
@@ -12,6 +11,9 @@ zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-history-substring-search
 
 cswl/zsh-rbenv
+mattberther/zsh-pyenv
+mattberther/zsh-nodenv
 
 mafredri/zsh-async
 sindresorhus/pure
+xiphe/password-generator-for-zsh

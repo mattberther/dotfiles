@@ -1,3 +1,4 @@
+{{- if ne .chezmoi.hostname "LT-MBERTHER2" }}
 set guioptions-=T                 " Hide toolbar.
 set guioptions-=r
 set lines=50 columns=120          " Window dimensions.
@@ -9,3 +10,4 @@ set encoding=utf-8                " Use UTF-8 everywhere.
 if has("gui_running")
     set guifont=SF\ Mono\ Medium:h14
 endif
+{{- end }}

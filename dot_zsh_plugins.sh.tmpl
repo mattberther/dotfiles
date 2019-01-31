@@ -1,0 +1,63 @@
+{{- if eq .chezmoi.os "darwin" }}
+source {{ .chezmoi.homedir }}/Library/Caches/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh/oh-my-zsh.sh
+fpath+=( {{ .chezmoi.homedir }}/Library/Caches/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh )
+source {{ .chezmoi.homedir }}/Library/Caches/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh/plugins/git/git.plugin.zsh
+fpath+=( {{ .chezmoi.homedir }}/Library/Caches/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh/plugins/git )
+
+source {{ .chezmoi.homedir }}/Library/Caches/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh/plugins/docker-compose/docker-compose.plugin.zsh
+fpath+=( {{ .chezmoi.homedir }}/Library/Caches/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh/plugins/docker-compose )
+source {{ .chezmoi.homedir }}/Library/Caches/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh/plugins/golang/golang.plugin.zsh
+fpath+=( {{ .chezmoi.homedir }}/Library/Caches/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh/plugins/golang )
+source {{ .chezmoi.homedir }}/Library/Caches/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh/plugins/tmux/tmux.plugin.zsh
+fpath+=( {{ .chezmoi.homedir }}/Library/Caches/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh/plugins/tmux )
+source {{ .chezmoi.homedir }}/Library/Caches/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh/plugins/tmuxinator/tmuxinator.plugin.zsh
+fpath+=( {{ .chezmoi.homedir }}/Library/Caches/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh/plugins/tmuxinator )
+source {{ .chezmoi.homedir }}/Library/Caches/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-zsh-users-SLASH-zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+fpath+=( {{ .chezmoi.homedir }}/Library/Caches/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-zsh-users-SLASH-zsh-autosuggestions )
+source {{ .chezmoi.homedir }}/Library/Caches/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-zsh-users-SLASH-zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
+fpath+=( {{ .chezmoi.homedir }}/Library/Caches/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-zsh-users-SLASH-zsh-syntax-highlighting )
+source {{ .chezmoi.homedir }}/Library/Caches/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-zsh-users-SLASH-zsh-history-substring-search/zsh-history-substring-search.plugin.zsh
+fpath+=( {{ .chezmoi.homedir }}/Library/Caches/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-zsh-users-SLASH-zsh-history-substring-search )
+source {{ .chezmoi.homedir }}/Library/Caches/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-cswl-SLASH-zsh-rbenv/zsh-rbenv.plugin.zsh
+fpath+=( {{ .chezmoi.homedir }}/Library/Caches/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-cswl-SLASH-zsh-rbenv )
+source {{ .chezmoi.homedir }}/Library/Caches/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-mattberther-SLASH-zsh-pyenv/zsh-pyenv.plugin.zsh
+fpath+=( {{ .chezmoi.homedir }}/Library/Caches/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-mattberther-SLASH-zsh-pyenv )
+source {{ .chezmoi.homedir }}/Library/Caches/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-mafredri-SLASH-zsh-async/async.plugin.zsh
+fpath+=( {{ .chezmoi.homedir }}/Library/Caches/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-mafredri-SLASH-zsh-async )
+source {{ .chezmoi.homedir }}/Library/Caches/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-sindresorhus-SLASH-pure/pure.plugin.zsh
+fpath+=( {{ .chezmoi.homedir }}/Library/Caches/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-sindresorhus-SLASH-pure )
+source {{ .chezmoi.homedir }}/Library/Caches/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-xiphe-SLASH-password-generator-for-zsh/password_generator.plugin.zsh
+fpath+=( {{ .chezmoi.homedir }}/Library/Caches/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-xiphe-SLASH-password-generator-for-zsh )
+{{- end }}
+
+{{- if eq .chezmoi.os "linux" }}
+source {{ .chezmoi.homedir }}/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh/oh-my-zsh.sh
+fpath+=( {{ .chezmoi.homedir }}/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh )
+source {{ .chezmoi.homedir }}/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh/plugins/git/git.plugin.zsh
+fpath+=( {{ .chezmoi.homedir }}/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh/plugins/git )
+
+source {{ .chezmoi.homedir }}/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh/plugins/docker-compose/docker-compose.plugin.zsh
+fpath+=( {{ .chezmoi.homedir }}/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh/plugins/docker-compose )
+source {{ .chezmoi.homedir }}/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh/plugins/golang/golang.plugin.zsh
+fpath+=( {{ .chezmoi.homedir }}/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh/plugins/golang )
+source {{ .chezmoi.homedir }}/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh/plugins/tmux/tmux.plugin.zsh
+fpath+=( {{ .chezmoi.homedir }}/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh/plugins/tmux )
+source {{ .chezmoi.homedir }}/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh/plugins/tmuxinator/tmuxinator.plugin.zsh
+fpath+=( {{ .chezmoi.homedir }}/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh/plugins/tmuxinator )
+source {{ .chezmoi.homedir }}/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-zsh-users-SLASH-zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+fpath+=( {{ .chezmoi.homedir }}/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-zsh-users-SLASH-zsh-autosuggestions )
+source {{ .chezmoi.homedir }}/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-zsh-users-SLASH-zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
+fpath+=( {{ .chezmoi.homedir }}/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-zsh-users-SLASH-zsh-syntax-highlighting )
+source {{ .chezmoi.homedir }}/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-zsh-users-SLASH-zsh-history-substring-search/zsh-history-substring-search.plugin.zsh
+fpath+=( {{ .chezmoi.homedir }}/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-zsh-users-SLASH-zsh-history-substring-search )
+source {{ .chezmoi.homedir }}/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-cswl-SLASH-zsh-rbenv/zsh-rbenv.plugin.zsh
+fpath+=( {{ .chezmoi.homedir }}/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-cswl-SLASH-zsh-rbenv )
+source {{ .chezmoi.homedir }}/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-mattberther-SLASH-zsh-pyenv/zsh-pyenv.plugin.zsh
+fpath+=( {{ .chezmoi.homedir }}/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-mattberther-SLASH-zsh-pyenv )
+source {{ .chezmoi.homedir }}/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-mafredri-SLASH-zsh-async/async.plugin.zsh
+fpath+=( {{ .chezmoi.homedir }}/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-mafredri-SLASH-zsh-async )
+source {{ .chezmoi.homedir }}/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-sindresorhus-SLASH-pure/pure.plugin.zsh
+fpath+=( {{ .chezmoi.homedir }}/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-sindresorhus-SLASH-pure )
+source {{ .chezmoi.homedir }}/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-xiphe-SLASH-password-generator-for-zsh/password_generator.plugin.zsh
+fpath+=( {{ .chezmoi.homedir }}/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-xiphe-SLASH-password-generator-for-zsh )
+{{- end }}

@@ -1,0 +1,4 @@
+zsh_plugins.txt
+{{- if ne .chezmoi.hostname "amnesia.athens.internal" }}
+.gvmirc
+{{- end }}
