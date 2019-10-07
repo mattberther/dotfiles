@@ -10,7 +10,7 @@ zsh-users/zsh-autosuggestions
 zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-history-substring-search
 
-cswl/zsh-rbenv
+mattberther/zsh-rbenv
 mattberther/zsh-pyenv
 mattberther/zsh-nodenv
 
