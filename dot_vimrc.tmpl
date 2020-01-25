@@ -90,7 +90,6 @@ autocmd FileType python set autoindent
 
 au BufWrite *.js :Autoformat
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-autocmd FileType taskpaper setlocal ts=4 sts=4 sw=4 noexpandtab norelativenumber nonumber
 
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
@@ -127,22 +126,6 @@ map <F8> :set nowrap<cr>:set nospell<cr>
 
 "let g:autoformat_verbosemode=1
 
-let g:task_paper_follow_move=0
-
-let g:ctrlp_buffer_func = { 'enter': 'MyCtrlPMappings' }
-
-func! MyCtrlPMappings()
-    nnoremap <buffer> <silent> <c-@> :call <sid>DeleteBuffer()<cr>
-endfunc
-
-func! s:DeleteBuffer()
-    let line = getline('.')
-    let bufid = line =~ '\[\d\+\*No Name\]$' ? str2nr(matchstr(line, '\d\+'))
-        \ : fnamemodify(line[2:], ':p')
-    exec "bd" bufid
-    exec "norm \<F5>"
-endfunc
-
 nnoremap <silent> <F3> :exec &nu==&rnu? "se nu!" : "se rnu!"<CR>
 
 set autowrite
@@ -150,8 +133,6 @@ map <C-n> :cnext<CR>
 map <C-m> :cprevious<CR>
 nnoremap <leader>a :cclose<CR>
 
-autocmd FileType go nmap <leader>b <Plug>(go-build)
-autocmd FileType go nmap <leader>r <Plug>(go-run)
 autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
 
 
@@ -180,9 +161,6 @@ function! Prose()
     map <silent> <buffer> <leader>qc <Plug>ReplaceWithCurly
     map <silent> <buffer> <leader>qs <Plug>ReplaceWithStraight
 endfunction
-
-" automatically initialize buffer by file type
-autocmd FileType markdown,mkd,rst call Prose()
 
 " invoke manually by command for other file types
 command! -nargs=0 Prose call Prose()
