@@ -46,6 +46,9 @@ Plugin 'vim-airline/vim-airline'
 " all of your plugins must be added before the following line
 call vundle#end()
 
+set splitbelow
+set splitright
+
 let g:nord_cursor_line_number_background = 1
 
 set background=dark
@@ -57,6 +60,8 @@ if exists('+termguicolors')
 endif
 syntax enable
 colorscheme nord
+
+filetype plugin indent on
 
 set tabstop=4
 set shiftwidth=4
