@@ -109,9 +109,7 @@ set foldlevel=99
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 map <C-g> :NERDTreeToggle<CR>
 
-set number
 set noswapfile
-set relativenumber
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
 
@@ -132,7 +130,8 @@ map <F8> :set nowrap<cr>:set nospell<cr>
 
 "let g:autoformat_verbosemode=1
 
-nnoremap <silent> <F3> :exec &nu==&rnu? "se nu!" : "se rnu!"<CR>
+set number relativenumber
+nnoremap <silent> <F3> :set number! relativenumber!<CR>
 
 set autowrite
 map <C-n> :cnext<CR>
