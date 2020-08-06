@@ -14,8 +14,8 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 export PIP_REQUIRE_VIRTUALENV=true
 export PYTHONDONTWRITEBYTECODE=1
 
-export GOPATH=$HOME/projects/go
-export PATH="$PATH:$HOME/.local/bin:${GOPATH//://bin:}/bin"
+export GOPATH=$HOME/go
+export PATH="$HOME/.local/bin:${GOPATH//://bin:}/bin:/usr/local/sbin:$PATH"
 
 alias clear_history='echo "" >  ~/.zsh_history & exec $SHELL -l'
 export GPG_TTY="tty"
