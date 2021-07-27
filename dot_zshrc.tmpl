@@ -1,6 +1,7 @@
-{{- if eq .chezmoi.hostname "LT-MBERTHER2" }}
-umask 22
-cd ~
+export GOPATH=$HOME/.go
+export PATH="$HOME/.local/bin:${GOPATH//://bin:}/bin:/usr/local/sbin:$PATH"
+{{- if eq .chezmoi.hostname "mac-mberther" }}
+export PATH="/opt/homebrew/bin:$PATH"
 {{- end }}
 
 export ZSH="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh"
@@ -13,8 +14,6 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 export PIP_REQUIRE_VIRTUALENV=true
 export PYTHONDONTWRITEBYTECODE=1
 
-export GOPATH=$HOME/.go
-export PATH="$HOME/.local/bin:${GOPATH//://bin:}/bin:/usr/local/sbin:$PATH"
 
 alias clear_history='echo "" >  ~/.zsh_history & exec $SHELL -l'
 export GPG_TTY="tty"
