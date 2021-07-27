@@ -41,6 +41,9 @@
 [gpg]
 	program = /usr/local/bin/gpg
 
+[tag]
+    gpgsign = true
+
 [diff]
   tool = Kaleidoscope
 [difftool "Kaleidoscope"]
