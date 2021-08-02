@@ -18,4 +18,7 @@ export PYTHONDONTWRITEBYTECODE=1
 alias clear_history='echo "" >  ~/.zsh_history & exec $SHELL -l'
 export GPG_TTY="tty"
 
+# Make pyenv play nice with Homebrew
+# https://github.com/pyenv/pyenv/issues/106
+alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 alias chezmoi="chezmoi -S ~/projects/mattberther/dotfiles"
