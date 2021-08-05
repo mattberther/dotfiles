@@ -1,0 +1,4 @@
+enable-ssh-support
+pinentry-program {{ if (eq .chezmoi.arch "arm64") }}/opt/homebrew/bin/{{ else }}/usr/local/bin/{{ end }}pinentry-mac
+default-cache-ttl 60
+max-cache-ttl 120
