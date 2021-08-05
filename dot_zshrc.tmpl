@@ -1,6 +1,6 @@
 export GOPATH=$HOME/.go
 export PATH="$HOME/.local/bin:${GOPATH//://bin:}/bin:/usr/local/sbin:$PATH"
-{{- if eq .chezmoi.hostname "mac-mberther" }}
+{{- if eq .chezmoi.arch "arm64" }}
 export PATH="/opt/homebrew/bin:$PATH"
 {{- end }}
 
