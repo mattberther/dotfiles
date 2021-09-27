@@ -11,7 +11,10 @@
 # The default key to sign with. If this option is not used, the default key is
 # the first key found in the secret keyring
 
+{{- $keyid := get . "gpgkeyid" }}
+{{- if $keyid }}
 default-key {{ .gpgkeyid }}
+{{- end }}
 
 #-----------------------------
 # behavior
