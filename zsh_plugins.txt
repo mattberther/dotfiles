@@ -15,5 +15,5 @@ mattberther/zsh-pyenv
 mattberther/zsh-nodenv
 
 mafredri/zsh-async
-sindresorhus/pure
+sindresorhus/pure branch:main
 xiphe/password-generator-for-zsh
