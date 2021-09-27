@@ -15,3 +15,6 @@ mas "OmniFocus", id: 1346203938
 mas "Pocket", id: 568494494
 mas "Magnet", id: 441258766
 mas "Save to Pocket", id: 1477385213
+
+cask "sensei"
+
