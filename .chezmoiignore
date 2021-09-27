@@ -1,5 +1,8 @@
 README.md
 zsh_plugins.txt
-{{- if ne .chezmoi.hostname "amnesia.athens.internal" }}
-.gvmirc
+{{- if ne .chezmoi.os "darwin" }}
+.gvimrc
+Brewfile
+.gnupg
 {{- end }}
+
