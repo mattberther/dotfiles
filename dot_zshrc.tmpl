@@ -1,8 +1,13 @@
 export GPG_TTY=$TTY
 export GOPATH=$HOME/.go
 export PATH="$HOME/.local/bin:${GOPATH//://bin:}/bin:/usr/local/sbin:$PATH"
+{{- if eq .chezmoi.os "darwin" }}
+# Make pyenv play nice with Homebrew
+# https://github.com/pyenv/pyenv/issues/106
+alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 {{- if eq .chezmoi.arch "arm64" }}
 export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
+{{- end }}
 {{- end }}
 
 export ZSH="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh"
@@ -13,11 +18,4 @@ export SSH_PUBLIC_KEY_PATH=$HOME/.ssh/id_rsa.pub
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 export PIP_REQUIRE_VIRTUALENV=true
 export PYTHONDONTWRITEBYTECODE=1
-
-
-{{- if eq .chezmoi.os "darwin" }}
-# Make pyenv play nice with Homebrew
-# https://github.com/pyenv/pyenv/issues/106
-alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
-{{- end }}
 
