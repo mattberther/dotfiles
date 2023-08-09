@@ -1,6 +1,9 @@
 export GPG_TTY=$TTY
 export GOPATH=$HOME/.go
 export PATH="$HOME/.local/bin:${GOPATH//://bin:}/bin:/usr/local/sbin:$PATH"
+source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
+source ~/.zsh_plugins.sh
+
 {{- if eq .chezmoi.os "darwin" }}
 export HOMEBREW_NO_ANALYTICS=1
 # Make pyenv play nice with Homebrew
@@ -11,8 +14,6 @@ export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
 {{- end }}
 {{- end }}
 
-export ZSH="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh"
-source ~/.zsh_plugins.sh
 
 export SSH_PUBLIC_KEY_PATH=$HOME/.ssh/id_rsa.pub
 
