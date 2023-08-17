@@ -9,14 +9,20 @@ export PATH="$HOME/.local/bin:${GOPATH//://bin:}/bin:/usr/local/sbin:$PATH"
 {{- if eq .chezmoi.os "darwin" }}
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_ENV_HINTS=1
-# Make pyenv play nice with Homebrew
-# https://github.com/pyenv/pyenv/issues/106
 {{- if eq .chezmoi.arch "arm64" }}
 export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
 {{- end }}
+
 source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
+{{- else }}
+
+source ${ZDOTDIR:-~}/.antidote/antidote.zsh
+{{- end }}
 source ~/.zsh_plugins.sh
+
+{{- if eq .chezmoi.os "darwin" }}
+
+# Make pyenv play nice with Homebrew
+# https://github.com/pyenv/pyenv/issues/106
 alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 {{- end }}
-
-
