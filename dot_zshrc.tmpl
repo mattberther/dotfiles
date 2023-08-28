@@ -9,6 +9,8 @@ export PATH="$HOME/.local/bin:${GOPATH//://bin:}/bin:/usr/local/sbin:$PATH"
 {{- if eq .chezmoi.os "darwin" }}
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_ENV_HINTS=1
+export HOMEBREW_BREWFILE=~/.brewfile
+
 {{- if eq .chezmoi.arch "arm64" }}
 export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
 {{- end }}
