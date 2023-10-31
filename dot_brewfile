@@ -6,7 +6,6 @@ brew "mas"
 brew "pinentry-mac"
 brew "the_silver_searcher"
 brew "tmux"
-brew "tmuxinator"
 brew "vim"
 
 mas "1Blocker", id: 1365531024
