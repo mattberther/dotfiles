@@ -9,8 +9,8 @@ brew "tmux"
 brew "vim"
 
 mas "1Blocker", id: 1365531024
-mas "OmniFocus", id: 1346203938
+mas "OmniFocus", id: 1542143627
 mas "Magnet", id: 441258766
+mas "Tailscale", id: 1475387142
 
 cask "sensei"
-cask "1password"
