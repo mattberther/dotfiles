@@ -4,6 +4,7 @@ export SSH_PUBLIC_KEY_PATH=$HOME/.ssh/id_rsa.pub
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 export PIP_REQUIRE_VIRTUALENV=true
 export PYTHONDONTWRITEBYTECODE=1
+export DISABLE_AUTO_UPDATE=true
 export PATH="$HOME/.local/bin:${GOPATH//://bin:}/bin:/usr/local/sbin:$PATH"
 
 {{- if eq .chezmoi.os "darwin" }}
