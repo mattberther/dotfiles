@@ -1,0 +1,13 @@
+{
+    "antidote": true,
+    "chezmoi": true,
+    "git": true,
+    "gnupg": true,
+    "mas": true,
+    "nmap": true,
+    "pinentry-mac": true,
+    "the_silver_searcher": true,
+    "tmux": true,
+    "tmuxinator": true,
+    "vim": true
+}
