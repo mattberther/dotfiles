@@ -1,4 +1,5 @@
 {
+    "ansible": true,
     "antidote": true,
     "chezmoi": true,
     "git": true,
@@ -6,8 +7,8 @@
     "mas": true,
     "nmap": true,
     "pinentry-mac": true,
+    "restic": true,
     "the_silver_searcher": true,
     "tmux": true,
-    "tmuxinator": true,
     "vim": true
 }
