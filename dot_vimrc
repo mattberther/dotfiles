@@ -1,0 +1,126 @@
+" ====================================================================
+" Vundle plugin manager setup
+" ====================================================================
+let mapleader=";"
+
+set nocompatible            " be iMproved, equired
+filetype off                " required for Vundle
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" --- Python Plugins ---
+Plugin 'sheerun/vim-polyglot'               " rich syntax for many languages
+Plugin 'dense-analysis/ale'                 " async linting & fix-on-save
+Plugin 'psf/black', { 'branch': 'stable'}   " Black formatter integration
+Plugin 'jmcantrell/vim-virtualenv'          " Python venv support
+Plugin 'airblade/vim-gitgutter'            " Git diff in gutter
+
+" --- Golang Plugins ---
+Plugin 'fatih/vim-go'                       " all-in-one Golang support
+
+" Optional niceties
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-sensible'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'scrooloose/nerdtree'
+
+" colorschemes
+Plugin 'arcticicestudio/nord-vim'
+
+" all of your plugins must be added before the following line
+call vundle#end()
+filetype plugin indent on   " required for filetype detection and indent
+
+
+" ====================================================================
+" Core UI / Editing Settings
+" ====================================================================
+syntax on           " syntax highlighting
+set number          " show line numbers
+set relativenumber  " relative line numbers
+set encoding=utf-8
+set expandtab       " spaces not tabs
+set shiftwidth=4    " indent 4 spaces
+set tabstop=4
+set autoindent
+set smartindent
+
+set background=dark
+syntax enable
+colorscheme nord
+
+set noswapfile
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
+let g:nord_cursor_line_number_background = 1
+
+" ====================================================================
+" ALE: Linting and Auto-Formatting
+" ====================================================================
+" Linters
+let g:ale_linters = {
+            \    'python':   ['flake8', 'mypy'],
+            \    'go':       ['golangci-lint', 'gopls'],
+            \}
+
+" Fixers
+let g:ale_fixers = {
+            \    'python':   ['black', 'isort'],
+            \    'go':       ['gofmt', 'goimports'],
+            \}
+
+let g:ale_fix_on_save = 1   "run fixers on save
+nmap <Leader>f :ALEFix<CR>  " Map <Leader>f to trigger ALEFix manually
+
+" Ensure ALEFix runs on every Python save
+augroup python_autoformat
+    autocmd!
+    autocmd BufWritePre *.py ALEFix
+augroup END
+
+" ====================================================================
+" Black overrides (optional)
+" ====================================================================
+let g:black_linelength = 88
+
+
+" ====================================================================
+" vim-go: Go-specific mappings and settings
+" ====================================================================
+" Use goimport
+let g:go_fmt_command = "goimports"
+
+" Auto-organize imports and fmt on save
+autocmd BufWritePre *.go :silent!   lua vim.cmd('GoImports')
+
+" Easy shortcuts
+nmap <Leader>r :GoRun<CR>                   " run current file
+nmap <Leader>t :GoTest<CR>                  " test package
+nmap <Leader>d <Plug>(go-doc-definition)    "go to definition
+
+
+
+let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
+map <C-g> :NERDTreeToggle<CR>
+
+
+if executable('ag')
+    " Use ag over grep
+    set grepprg=ag\ --nogroup\ --nocolor
+
+    " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+    let g:ctrlp_show_hidden = 1
+    " ag is fast enough that CtrlP doesn't need to cache
+    let g:ctrlp_use_caching = 0
+endif
+
+filetype plugin on
+
